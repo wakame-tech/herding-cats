@@ -15,7 +15,7 @@ lazy val root = (project in file("."))
     ),
     scalacOptions ++= Seq(
       "-Ymacro-annotations",
-      "-Ypartial-unification"
+      // "-Ypartial-unification"
     )
   )
 

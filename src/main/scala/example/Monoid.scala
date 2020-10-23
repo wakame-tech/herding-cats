@@ -30,3 +30,7 @@ object FoldLeft {
     def foldLeft[A, B](xs: List[A], b: B, f: (B, A) => B) = xs.foldLeft(b)(f)
   }
 }
+
+object Sum {
+  def sum[M[_]: FoldLeft, A: Monoid](xs: M[A])(implicit m: Monoid[A], fl: FoldLeft[M]): A = fl.foldLeft(xs, m.mzero, m.mappend)
+}
